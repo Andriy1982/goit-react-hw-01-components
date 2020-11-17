@@ -9,7 +9,7 @@ const Container = styled.div`
   border-radius: 6px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   max-width: 250px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   text-align: center;
 `;
 
