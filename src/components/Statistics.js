@@ -2,16 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-
-const Container = styled.section`
+const Container = styled.div`
   margin: 0 auto;
+  padding: 50px;
   max-width: 300px;
+  background-color: rgba(200,200,200,0.5);
+`
+
+
+const Section = styled.section`
+
 `;
 
 const Title = styled.h2`
 margin: 0;
 text-align: center;
-padding: 15px 0;
+text-transform: uppercase;
+font-size: 20px;
+padding: 20px 0;
+background-color: white;
 `
 
 const List = styled.ul`
@@ -26,8 +35,8 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   width: 60px;
-  background-color: blue;
-  outline: 1px solid red;
+  /* background-color: ${"rgb(" + randomRGB()[0] + ", " + randomRGB()[1] + ", " + randomRGB()[2] + ")"}; */
+  /* outline: 1px solid red; */
 `;
 
 const Label = styled.span`
@@ -39,38 +48,25 @@ color: white;
 `
 
 const Statistics = ({ title, stats }) => {
-  // const [id, label, percentage] = stats;
   return (
     <Container>
+        <Section>
       {title && <Title>{title}</Title>}
 
       <List>
         {stats.map(stat => (
-          <ListItem key={stat.id}>
+          <ListItem key={stat.id}
+          style={{
+            // outline: '1px solid red',
+            backgroundColor: randomRGB()
+          }}
+          >
             <Label>{stat.label}</Label>
             <Label>{stat.percentage}%</Label>
           </ListItem>
         ))}
       </List>
-
-      {/* <ul class="stat-list">
-    <li class="item">
-    <span class="label">{label}</span>
-    <span class="percentage">{percentage}</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp3</span>
-      <span class="percentage">14%</span>
-    </li>
-    <li class="item">
-      <span class="label">.pdf</span>
-      <span class="percentage">41%</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp4</span>
-      <span class="percentage">12%</span>
-    </li>
-  </ul> */}
+      </Section>
     </Container>
   );
 };
@@ -89,5 +85,16 @@ Statistics.propTypes = {
     })
       ).isRequired,
     }
+
+    function randomNum() {
+        return Math.floor(Math.random() * 256);
+      }
+      
+      function randomRGB() {
+        var red = randomNum();
+        var green = randomNum();
+        var blue = randomNum();
+        return `rgb(${red},${green},${blue})`
+      }
 
 export default Statistics;

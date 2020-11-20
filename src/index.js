@@ -47,4 +47,19 @@ import App from './components/App';
 //   </div>
 // );
 
+function randomNum() {
+    return Math.floor(Math.random() * 256);
+  }
+  
+  function randomRGB() {
+    var red = randomNum();
+    var green = randomNum();
+    var blue = randomNum();
+
+    return `rgb(${red},${green},${blue})`
+    // return [red,green,blue];
+  }
+
+//   console.log(randomRGB());
+
 ReactDOM.render(<App />, document.querySelector('#root'));

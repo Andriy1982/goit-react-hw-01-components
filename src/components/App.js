@@ -2,14 +2,27 @@ import React from 'react';
 import Product from './Product';
 import Section from './Section';
 import BookList from './BooksList';
-import favouriteBooks from '../books.json';
-import user from '../user.json';
-import statisticalData from '../statistical-data.json'
+import favouriteBooks from '../datajson/books.json';
+import user from '../datajson/user.json';
+import statisticalData from '../datajson/statistical-data.json'
+import friends from '../datajson/friends.json'
+import  transactions from '../datajson/transactions.json'
 
 import Profile from './Profile';
 import Statistics from './Statistics';
+import TransactionHistory from './TransactionHistory';
+import FrendListItem from './FriendListItem';
+import FrendList from './FriendList';
 
-// console.log(user);
+import foto from '../image/nature.jpg';
+import FriendList from './FriendList';
+
+// console.log(FrendList);
+// console.log(FrendListItem);
+
+// console.log(foto);
+
+// console.log(friends[0]);
 // console.log(statisticalData);
 // Statistics(statisticalData)
 
@@ -20,7 +33,7 @@ const App = () => {
         name={user.name}
         tag={user.tag}
         location={user.location}
-        avatar={user.avatar}
+        avatar={foto}
         stats={user.stats}
       />
       {/* <h1>Hello World</h1> */}
@@ -38,15 +51,31 @@ const App = () => {
     
     {/* <Section title = "TTTTTT"> */}
     <Statistics
-    title = "Hellow World"
+    title = "Upload stats"
     stats = {statisticalData}
     />
-       <Statistics
+
+
+       {/* <Statistics
     title = "Bebebebe"
     stats = {statisticalData}
-    />
+    /> */}
     {/* </Section> */}
+<FriendList
+friends = {friends}
+/>
+
+<TransactionHistory
+items = {transactions}
+/>
+
+    {/* <FrendListItem
+      avatar = {foto}
+      name = {friends[0].name}
+
+/> */}
     </>
+   
   );
 };
 export default App;

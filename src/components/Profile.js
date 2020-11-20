@@ -100,6 +100,11 @@ const Profile = user => {
   );
 };
 
+Profile.defaultProp = {
+  avatar:
+    '/image/nature.jpg',
+};
+
 Profile.propTypes = {
   user: PropTypes.exact({
     name: string.isRequired,
