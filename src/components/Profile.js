@@ -44,9 +44,14 @@ const Item = styled.li`
   flex-basis: auto;
   width: 33.333%;
   cursor: pointer;
+
+  &:not(:last-child) {
+    border-right: 1px solid;
+  }
 `;
 
 const ListLabel = styled.span`
+  margin-bottom: 10px;
   text-align: center;
   display: block;
   font-size: 12px;
@@ -76,7 +81,7 @@ const Profile = user => {
         </Item>
         <Item>
           <ListLabel>Views</ListLabel>
-          <span>{views}</span>
+          <ListQuantity>{views}</ListQuantity>
         </Item>
         <Item>
           <ListLabel>Likes</ListLabel>
@@ -84,25 +89,7 @@ const Profile = user => {
         </Item>
       </List>
     </Container>
-
-    // <div>
-    //   <img src={url} alt={name} width="640" />
-    //   <h2>{name}</h2>
-    //   <p>Price: {price}$</p>
-    //   <button type="button">Add to cart</button>
-    // </div>
-    //   {stats.map(stat => (
-    //   <li key={stat['key']}>
-    //     <span class="label">Followers</span>
-    //     <span class="quantity">1000</span>
-    //   </li>
-    // ))}
   );
-};
-
-Profile.defaultProp = {
-  avatar:
-    '/image/nature.jpg',
 };
 
 Profile.propTypes = {

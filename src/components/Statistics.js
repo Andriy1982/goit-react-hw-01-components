@@ -3,26 +3,20 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Container = styled.div`
+  font-family: Helvetica, Arial, sans-serif;
   margin: 0 auto;
   padding: 50px;
   max-width: 300px;
-  background-color: rgba(200,200,200,0.5);
-`
-
-
-const Section = styled.section`
-
+  background-color: rgba(200, 200, 200, 0.5);
 `;
-
 const Title = styled.h2`
-margin: 0;
-text-align: center;
-text-transform: uppercase;
-font-size: 20px;
-padding: 20px 0;
-background-color: white;
-`
-
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 20px 0;
+  background-color: white;
+`;
 const List = styled.ul`
   display: flex;
   justify-content: center;
@@ -35,66 +29,62 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   width: 60px;
-  /* background-color: ${"rgb(" + randomRGB()[0] + ", " + randomRGB()[1] + ", " + randomRGB()[2] + ")"}; */
-  /* outline: 1px solid red; */
 `;
 
 const Label = styled.span`
-/* margin: 0 auto; */
-text-align: center;
-display: block;
-padding: 5px 0;
-color: white;
-`
+  /* margin: 0 auto; */
+  text-align: center;
+  display: block;
+  padding: 5px 0;
+  color: white;
+`;
 
 const Statistics = ({ title, stats }) => {
   return (
     <Container>
-        <Section>
       {title && <Title>{title}</Title>}
-
       <List>
-        {stats.map(stat => (
-          <ListItem key={stat.id}
-          style={{
-            // outline: '1px solid red',
-            backgroundColor: randomRGB()
-          }}
+        {stats.map(({ id, label, percentage }) => (
+          <ListItem
+            key={id}
+            style={{
+              backgroundColor: randomRGB(),
+            }}
           >
-            <Label>{stat.label}</Label>
-            <Label>{stat.percentage}%</Label>
+            <Label>{label}</Label>
+            <Label>{percentage}%</Label>
           </ListItem>
         ))}
       </List>
-      </Section>
     </Container>
   );
 };
 
 Statistics.defaultProps = {
-    title: '',
-}
+  title: '',
+};
 
 Statistics.propTypes = {
-    title: PropTypes.string.isRequired,
- 
-    stats: PropTypes.arrayOf( PropTypes.exact({
-        id: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired,
-        percentage: PropTypes.number.isRequired, 
-    })
-      ).isRequired,
-    }
+  title: PropTypes.string.isRequired,
 
-    function randomNum() {
-        return Math.floor(Math.random() * 256);
-      }
-      
-      function randomRGB() {
-        var red = randomNum();
-        var green = randomNum();
-        var blue = randomNum();
-        return `rgb(${red},${green},${blue})`
-      }
+  stats: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+};
+
+function randomNum() {
+  return Math.floor(Math.random() * 256);
+}
+
+function randomRGB() {
+  var red = randomNum();
+  var green = randomNum();
+  var blue = randomNum();
+  return `rgb(${red},${green},${blue})`;
+}
 
 export default Statistics;
