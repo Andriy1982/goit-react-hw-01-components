@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const Item = styled.li`
+export const Item = styled.li`
   display: flex;
   justify-content: left;
   align-items: center;
@@ -17,7 +16,7 @@ const Item = styled.li`
   }
 `;
 
-const Condition = styled.span`
+export const Condition = styled.span`
   margin: 0 20px;
   display: block;
   width: 20px;
@@ -26,24 +25,12 @@ const Condition = styled.span`
   background-color: ${props => (props.isOnline ? 'green' : 'red')};
 `;
 
-const Image = styled.img`
+export const Image = styled.img`
   margin-right: 15px;
   border-radius: 5px;
 `;
 
-const Name = styled.p`
+export const Name = styled.p`
   font-size: 28px;
   font-weight: 600;
 `;
-
-const FriendListItem = ({ avatar, name, isOnline }) => {
-  return (
-    <Item>
-      <Condition isOnline={isOnline}></Condition>
-      <Image src={avatar} alt={name} width="80" />
-      <Name>{name}</Name>
-    </Item>
-  );
-};
-
-export default FriendListItem;

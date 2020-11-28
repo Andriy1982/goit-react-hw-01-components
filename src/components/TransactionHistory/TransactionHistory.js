@@ -1,41 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
-const Table = styled.table`
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
-const TableHeadline = styled.thead`
-  background-color: palevioletred;
-  text-transform: uppercase;
-`;
-
-const TableRow = styled.tr`
-  :nth-child(odd) {
-    /* outline: 1px solid red; */
-    background-color: #eee;
-  }
-`;
-
-const TableHead = styled.th`
-  padding: 10px;
-  height: 20px;
-  text-align: center;
-  color: #fff;
-  background-color: #706d97;
-`;
-
-const TableCell = styled.td`
-  padding: 10px;
-  height: 20px;
-  text-align: center;
-  min-width: 200px;
-  color: #696969;
-  border-bottom: 1px solid #eee;
-`;
+import {Table, TableHeadline, TableRow, TableHead, TableCell} from './TransactionHistoryStyledComponent'
 
 const TransactionHistory = ({ items }) => {
   return (

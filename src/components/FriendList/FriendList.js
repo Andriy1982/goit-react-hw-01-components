@@ -1,13 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import FriendListItem from './FriendListItem';
-
-const List = styled.ul`
-  margin: 0;
-  padding: 20px 0;
-  list-style: none;
-`;
+import {List} from './FrendListStyledComponent'
+import FriendListItem from '../FriendListItem';
 
 const FriendList = ({ friends }) => {
   return (
